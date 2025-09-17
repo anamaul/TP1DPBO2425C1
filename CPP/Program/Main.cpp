@@ -1,53 +1,53 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "ProdukElektronik.cpp" // Include file class ProdukElektronik
+#include "ProdukElektronik.cpp" // Meng-include file class ProdukElektronik
 using namespace std;
 
 // ------------------ GLOBAL DATA ------------------
-vector<ProdukElektronik> daftarProduk; // List produk
+vector<ProdukElektronik> daftarProduk; // Menyimpan daftar semua produk
 
 // ------------------ FUNCTION CRUD ------------------
 
-// Tampilkan semua produk
+// Menampilkan semua produk yang tersimpan
 void tampilkanProduk()
 {
-  if (daftarProduk.empty())
+  if (daftarProduk.empty()) // Jika daftar kosong
   {
     cout << "Belum ada produk.\n";
     return;
   }
   cout << "\n=== Daftar Produk ===\n";
-  for (auto &p : daftarProduk)
+  for (auto &p : daftarProduk) // Loop untuk setiap produk
   {
-    p.tampilkanInfo();
+    p.tampilkanInfo(); // Panggil method tampilkanInfo
   }
 }
 
-// Cari index produk berdasarkan ID
+// Mencari index produk berdasarkan ID
 int cariProduk(string id)
 {
   for (int i = 0; i < daftarProduk.size(); i++)
   {
-    if (daftarProduk[i].getId() == id)
+    if (daftarProduk[i].getId() == id) // Jika ID cocok
       return i;
   }
-  return -1;
+  return -1; // Tidak ditemukan
 }
 
-// Tambah data produk
+// Menambahkan produk baru
 void tambahProduk()
 {
   string id, nama, watt, harga;
   cout << "Masukkan ID produk: ";
   cin >> id;
-  cin.ignore();
+  cin.ignore(); // Mengabaikan karakter newline
 
-  // 🔍 Cek apakah ID sudah ada
+  // 🔍 Periksa apakah ID sudah digunakan
   if (cariProduk(id) != -1)
   {
     cout << "Produk dengan ID '" << id << "' sudah ada!\n";
-    return; // Stop tambah produk
+    return;
   }
 
   cout << "Masukkan Nama produk: ";
@@ -57,18 +57,19 @@ void tambahProduk()
   cout << "Masukkan Harga produk: ";
   getline(cin, harga);
 
+  // Tambahkan objek ProdukElektronik ke daftar
   daftarProduk.push_back(ProdukElektronik(id, nama, watt, harga));
   cout << "Produk berhasil ditambahkan!\n";
 }
 
-// Update data produk
+// Mengupdate data produk berdasarkan ID
 void updateProduk()
 {
   string id;
   cout << "Masukkan ID produk yang akan diupdate: ";
   cin >> id;
   cin.ignore();
-  int idx = cariProduk(id);
+  int idx = cariProduk(id); // Cari index produk
   if (idx == -1)
   {
     cout << "Produk tidak ditemukan!\n";
@@ -83,6 +84,7 @@ void updateProduk()
   cout << "Masukkan Harga baru: ";
   getline(cin, harga);
 
+  // Set nilai baru ke objek produk
   daftarProduk[idx].setNama(nama);
   daftarProduk[idx].setWatt(watt);
   daftarProduk[idx].setHarga(harga);
@@ -90,24 +92,25 @@ void updateProduk()
   cout << "Produk berhasil diupdate!\n";
 }
 
-// Hapus produk
+// Menghapus produk berdasarkan ID
 void hapusProduk()
 {
   string id;
   cout << "Masukkan ID produk yang akan dihapus: ";
   cin >> id;
-  int idx = cariProduk(id);
+  int idx = cariProduk(id); // Cari index produk
   if (idx == -1)
   {
     cout << "Produk tidak ditemukan!\n";
     return;
   }
 
+  // Hapus produk dari vector
   daftarProduk.erase(daftarProduk.begin() + idx);
   cout << "Produk berhasil dihapus!\n";
 }
 
-// Cari dan tampilkan produk
+// Menampilkan produk tertentu berdasarkan ID
 void cariProdukMenu()
 {
   string id;
@@ -128,6 +131,7 @@ int main()
   int pilihan;
   do
   {
+    // Menampilkan menu utama
     cout << "\n=== MENU TOKO ELEKTRONIK ===\n";
     cout << "1. Tambah Produk\n";
     cout << "2. Tampilkan Semua Produk\n";
@@ -137,8 +141,9 @@ int main()
     cout << "0. Keluar\n";
     cout << "Pilih menu: ";
     cin >> pilihan;
-    cin.ignore();
+    cin.ignore(); // Buang newline
 
+    // Pilih aksi sesuai input user
     switch (pilihan)
     {
     case 1:
@@ -162,7 +167,7 @@ int main()
     default:
       cout << "Pilihan tidak valid!\n";
     }
-  } while (pilihan != 0);
+  } while (pilihan != 0); // Ulang selama pilihan bukan 0
 
   return 0;
 }

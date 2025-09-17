@@ -1,20 +1,20 @@
-#include <iostream> // Untuk input-output
+#include <iostream> // Untuk operasi input-output (cout, endl)
 #include <string>   // Untuk tipe data string
 using namespace std;
 
-// Membuat class ProdukElektronik
+// Mendefinisikan class ProdukElektronik
 class ProdukElektronik
 {
 private:
-    string id;    // ID produk
-    string nama;  // Nama produk
-    string watt;  // Daya (Watt) produk
-    string harga; // Harga produk
+    string id;    // Menyimpan ID produk
+    string nama;  // Menyimpan nama produk
+    string watt;  // Menyimpan daya (watt) produk
+    string harga; // Menyimpan harga produk
 
 public:
-    ProdukElektronik() {} // Constructor default
+    ProdukElektronik() {} // Constructor default (tanpa parameter)
 
-    // Constructor dengan parameter
+    // Constructor dengan parameter untuk inisialisasi atribut
     ProdukElektronik(string id, string nama, string watt, string harga)
     {
         this->id = id;
@@ -23,20 +23,20 @@ public:
         this->harga = harga;
     }
 
-    // Getter & Setter
-    void setId(string id) { this->id = id; }
-    string getId() { return id; }
+    // ----------- Getter & Setter -----------
+    void setId(string id) { this->id = id; }     // Mengatur ID
+    string getId() { return id; }                // Mengambil ID
 
-    void setNama(string nama) { this->nama = nama; }
-    string getNama() { return nama; }
+    void setNama(string nama) { this->nama = nama; } // Mengatur nama
+    string getNama() { return nama; }                // Mengambil nama
 
-    void setWatt(string watt) { this->watt = watt; }
-    string getWatt() { return watt; }
+    void setWatt(string watt) { this->watt = watt; } // Mengatur watt
+    string getWatt() { return watt; }                // Mengambil watt
 
-    void setHarga(string harga) { this->harga = harga; }
-    string getHarga() { return harga; }
+    void setHarga(string harga) { this->harga = harga; } // Mengatur harga
+    string getHarga() { return harga; }                  // Mengambil harga
 
-    // Method untuk menampilkan informasi produk
+    // Method untuk menampilkan semua informasi produk
     void tampilkanInfo()
     {
         cout << "ID: " << id
@@ -46,5 +46,5 @@ public:
         cout << "=====================" << endl;
     }
 
-    ~ProdukElektronik() {} // Destructor
+    ~ProdukElektronik() {} // Destructor (kosong, hanya formalitas)
 };
