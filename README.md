@@ -35,3 +35,21 @@ Ini buktinya jika sudah terhapus
 Jika mau keluar program
 
 <img width="486" height="203" alt="image" src="https://github.com/user-attachments/assets/f4e02151-9afe-4d4c-871b-0f9e541d6200" />
+
+Dokumentasi:
+
+CPP:
+
+<img width="698" height="334" alt="image" src="https://github.com/user-attachments/assets/519344fd-e787-4ba2-8f66-fcc9081d120d" />
+
+Python:
+
+<img width="640" height="274" alt="image" src="https://github.com/user-attachments/assets/cf84da43-9c18-4347-b868-719596207376" />
+
+Java:
+
+<img width="601" height="310" alt="image" src="https://github.com/user-attachments/assets/d4617523-baf8-4577-8415-fbae17069343" />
+
+PHP:
+
+<img width="1919" height="1041" alt="Screenshot 2025-09-17 141610" src="https://github.com/user-attachments/assets/0502152c-deb6-4776-aa97-fbe210d24dee" />
